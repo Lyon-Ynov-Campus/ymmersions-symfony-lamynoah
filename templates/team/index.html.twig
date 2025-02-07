@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes équipes{% endblock %}
+
+{% block body %}
+    <h1>Liste de mes équipes</h1>
+
+    <ul>
+        {% for equipe in equipes %}
+            <li>
+                <p><strong>Nom de l'équipe :</strong> {{ equipe.getName() }}</p>
+                <form method="post" action="{{ path('team_join', {'id': equipe.getId()}) }}">
+                    <button type="submit">Rejoindre l'équipe</button>
+                </form>
+            </li> 
+        {% else %}
+            <li>Aucune équipe trouvée.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

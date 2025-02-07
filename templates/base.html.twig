@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        
+        {% block stylesheets %}
+        <style>
+            nav {
+                background: #333;
+                padding: 10px;
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 15px;
+            }
+            li {
+                display: inline;
+            }
+            a, button {
+                text-decoration: none;
+                color: white;
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            a:hover, button:hover {
+                text-decoration: underline;
+            }
+        </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <nav>
+            <ul>
+                <li><a href="{{ path ('app_my_tournament')}}">Voir mes tournois</a></li>
+                <li><a href="{{path ('app_my_team')}}">Voir mes équipes</a></li>
+                <li> <a href="{{path ('app_team')}}"> Voir toutes les équipes </a></li>
+
+                {% if app.user %}
+                    <li><a href=" {{ path('app_profil')}}">Profil</a></li> 
+                    <li>
+                        <form action="{{ path('app_logout') }}" method="post">
+                            <button type="submit">Se déconnecter</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        {% block body %}{% endblock %}
+    </body>
+</html> 

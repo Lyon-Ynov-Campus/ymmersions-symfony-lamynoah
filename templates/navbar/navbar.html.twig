@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+        <li><a href="{{ path('app_tournament_list') }}">Voir mes tournois</a></li>
+        <li><a href="{{ path('app_team_list') }}">Voir mes équipes</a></li>
+
+        {% if app.user %}
+            <li>
+                <form action="{{ path('app_logout') }}" method="post">
+                    <button type="submit">Se déconnecter</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+        {% endif %}
+    </ul>
+</nav>

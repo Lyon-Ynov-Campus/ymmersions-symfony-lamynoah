@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block body %}
+<style>
+    .login-wrapper { 
+        margin: 1em auto; 
+        max-width: 400px; 
+        width: 95%; 
+        font: 18px/1.5 sans-serif; 
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f9f9f9;
+    }
+    .login-wrapper input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .login-wrapper button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .login-wrapper button:hover {
+        background: #0056b3;
+    }
+    .register-link {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .register-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .register-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-wrapper">
+    <h1>Login</h1>
+    <form method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Se connecter</button>
+    </form>
+    <div class="register-link">
+        <a href="/register_page">Créer un compte</a>
+    </div>
+</div>
+{% endblock %}

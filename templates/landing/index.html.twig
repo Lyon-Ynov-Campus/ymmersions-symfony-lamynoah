@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AriseTournaments{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .hero {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        margin: 0;
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: white;
+        background: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background: #0056b3;
+    }
+</style>
+
+<div class="hero">
+    <h1>AriseTournaments</h1>
+</div>
+<div class="buttons">
+    <a href="/login" class="btn">Se connecter</a>
+    <a href="/register" class="btn">S'inscrire</a>
+</div>
+{% endblock %}
