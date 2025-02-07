@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Tournois{% endblock %}
+
+{% block body %}
+    <h1>Tournois Disponibles</h1>
+
+    <ul>
+        {% for tournoi in tournaments %}
+            <li>
+                <p><strong>Nom :</strong> {{ tournoi.name }}</p>
+                <p><strong>Date :</strong> {{ tournoi.dateDebut|date('d/m/Y') }}</p>
+
+                <form method="post" action="{{ path('tournament_join', {'id': tournoi.id}) }}">  
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </li> 
+        {% else %}
+            <li>Aucun tournoi trouvé.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register Page{% endblock %}
+
+{% block body %}
+<style>
+    .register-wrapper { 
+        margin: 1em auto; 
+        max-width: 400px; 
+        width: 95%; 
+        font: 18px/1.5 sans-serif; 
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f9f9f9;
+    }
+    .register-wrapper input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .register-wrapper button {
+        width: 100%;
+        padding: 10px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .register-wrapper button:hover {
+        background: #218838;
+    }
+    .login-link {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .login-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="register-wrapper">
+    <h1>Register</h1>
+    <form method="post">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">S'inscrire</button>
+    </form>
+    <div class="login-link">
+        <a href="/login_page">S'identifier</a>
+    </div>
+</div>
+{% endblock %}

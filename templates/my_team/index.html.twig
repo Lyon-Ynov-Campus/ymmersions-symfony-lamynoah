@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Équipe{% endblock %}
+
+{% block body %}
+    <h1>Mon Équipe</h1>
+
+    {% if equipe %}
+        <p><strong>Nom de l'équipe :</strong> {{ equipe.name }}</p>
+    {% else %}
+        <p>Vous n'êtes dans aucune équipe pour le moment.</p>
+    {% endif %}
+
+{% endblock %}
+

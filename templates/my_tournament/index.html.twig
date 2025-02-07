@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Tournois{% endblock %}
+
+{% block body %}
+    <h1>Mes Tournois</h1>
+
+    {% if tournois is empty %}
+        <p>Vous ne participez à aucun tournoi.</p>
+    {% else %}
+        <ul>
+            {% for tournoi in tournois %}
+                <li>
+                    <p><strong>Nom :</strong> {{ tournoi.name }}</p>
+                    <p><strong>Date :</strong> {{ tournoi.dateDebut|date('d/m/Y') }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
